@@ -1,0 +1,111 @@
+
+
+<!--
+<div class="col-12 col-lg-6 mt-4">
+<div class="card pt-3" style="min-width:600px;">
+   <a href="" class=''>User Name: {{post.user.username}}</a>
+   <br>
+   <a>{{post.date_created}}</a>
+   <br>
+   <p class="card-text">{{post.comment}}</p>
+   <br>
+   <i class="fa fa-heart my-auto"> Follow</i>
+   <br>
+   <i class="fas fa-edit"> Edit</i>
+   <br>
+   <i class="far fa-trash-alt"> Trash</i>
+   <br>
+   <i class="fas fa-arrow-right"> More Details</i>
+</div>
+</div>
+
+-->
+
+
+         
+
+<!--
+<div class="col-12 col-lg-6 mt-4">
+<div class="card pt-3" style="min-width:600px;">
+   <a href="" class=''>User Name: {{post.user.username}}</a>
+   <br>
+   <a>{{post.date_created}}</a>
+   <br>
+   <p class="card-text">{{post.comment}}</p>
+   <br>
+   <i class="fa fa-heart my-auto"> Follow</i>
+   <br>
+   <i class="fas fa-edit"> Edit</i>
+   <br>
+   <i class="far fa-trash-alt"> Trash</i>
+   <br>
+   <i class="fas fa-arrow-right"> More Details</i>
+</div>
+</div>
+
+-->
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+
+<div class="biocard overlay d-flex flex-column" data-aos="flip-up" >
+  
+           
+   <div class="biocard-img" >
+     
+    <img src="{% static post.image %}">
+     
+   </div >
+   <i class="fa-solid fa-user"></i>
+   <a href="" class="alpha" style="margin-top:-24px; font-size:1.3rem; text-align">&nbsp;&nbsp;&nbsp;&nbsp;{{post.user.username}}&nbsp;</a>
+   <div class="desc" style="margin-top:28px;">
+   
+    <hr class="solid">
+    <h3 class="secondary-text" style="font-size:1.3rem; margin-right:22px;;">{{post.job_title}}</h3>
+    <hr class="solid">
+    <div id="date">
+    <a style="color:#8FD19E; font-size:0.9rem;">Created: {{post.date_created}}</a>
+    <hr class="solid">
+    </div style="margin-bottom:10px;">
+    <p class="card-text" style="color:white; padding-left:6px; padding-right:22px;">{{post.job_summary}}</p>
+   </div>
+   <a href="{% url 'post_app:detail' post.id %}"><button class="primary-text">
+    <i class="fa-solid fa-arrow-right-to-bracket"></i> <i>&nbsp;Details / Contact</i></button></a>
+    <div class="d-flex flex-row justify-content-center">
+    <h5 class="secondary-text" style="font-size:1.1rem; padding-top:254px; color:#8fd19e;">{{post.location}}</h5>
+    </div>
+   <div class="details">
+    {% if request.user.is_authenticated %}
+         
+     <div class="rating">
+       <h4 class="primary-text bg-info p-2 text-dark bg-opacity-25 text-white rounded" style="margin: -10px 0; margin-left:10px; margin-right:10px;"> <i class="fa-solid fa-pen-to-square" style="font-size:1.3rem; "></i><i> &nbsp;Edit Job</i></h>
+       <br>
+       <!--<h6 class="secondary-text">-->
+          </h6>
+     </div>
+     <div class="activity">
+      <a href="{% url 'post_app:delete' post.id  %}"><h4 class="primary-text bg-danger p-2 text-dark bg-opacity-25 text-white rounded"  style="margin: -10px 0 ; margin-left:10px; margin-right:10px;"><i <i class="fa-solid fa-trash" style="font-size:1.3rem;"></i><i> &nbsp;Delete Job</i></h4>
+       <!--<h6 class="secondary-text"> </h6>-->
+     </div>
+   {% else %}
+     <div class="rating">
+      <h4 class="primary-text" style="margin-left:10px; margin-right:10px;"> <i class="fa-solid fa-thumbs-down" style="font-size:1.3rem;"></i><i> &nbsp;Login to Like or Dislike</i></h>
+      <br>
+      <!--<h6 class="secondary-text">-->
+         </h6>
+    </div>
+    {% endif %}
+    </div>
+     
+   </div>
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+ {% endblock content %}
+
+    
+
+
+ 

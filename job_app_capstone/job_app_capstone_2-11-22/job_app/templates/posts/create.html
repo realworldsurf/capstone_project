@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nav_bar/navbar_3.html' %}
+
+<h1 style="text-align:center; padding-bottom:30px; padding-top:40px;">Create a Job Posting</h1>
+<div id="container">
+  
+    
+<body class="user_create_main" >
+
+<div 
+class="row" 
+style="max-width: 600px;
+margin-right: auto;
+margin-left: auto;" >
+
+    <!-- enctype allows images and other types to be generated -->
+<form action="{% url 'post_app:create' %}"
+    name = "image"
+    id = "image"
+    method="POST" 
+    class="d-flex flex-column gap-3 p-3" 
+    enctype="multipart/form-data" >
+
+{{form}}
+{% csrf_token %}
+<button 
+type="submit" 
+class="">Submit</button>
+</form>
+</div> 
+
+</body>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

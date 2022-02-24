@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+{% include 'nav_bar/navbar_3.html' %}
+
+
+
+
+<div>
+
+  <div class="  section2bg pb-5 pt-5" style="margin-top:-150px;" >
+    <div class="  rowmargins pt-5 pb-5" style="display: grid; min-width:320px;
+    
+    margin-top: 120px;
+    padding: 25px 0;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+     max-width:800px;
+    bottom: 0;
+    right: 0%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin-left: auto; margin-right: auto;">
+      
+
+
+
+
+
+
+
+
+     
+      <div class=" row mb-5 mt-5">
+    
+         
+       
+       
+        <div class="detail-page" style="max-width:800px; align-content:center; justify-content:space-around ">
+<!-- Login Options Available with request.user.is.authenticated -->
+          {% if request.user.is_authenticated %}
+         
+          
+             
+          <div class="rating">
+            <h4 class="square p-2 bg-success bg-opacity-25 square rounded" style="margin: 0px 0; color:#FFFF00;"> <i class="fa-solid fa-floppy-disk" style="font-size:1.3rem; "></i><i> &nbsp;Save Job</i></h>
+            <br>
+            <!--<h6 class="secondary-text">-->
+               </h6>
+          </div>
+          <div class="activity">
+            <h4 class="square p-2 bg-success square rounded bg-opacity-25"  style="margin: 0px 0; color:#FFFF00;"><span id="like-count-{{post.id}}">{{post.likes.all.count}}&nbsp;</span><i <i class="fa-solid fa-thumbs-up" style="font-size:1.3rem;"></i><i> &nbsp;Likes</i></h4>
+            <!--<h6 class="secondary-text"> </h6>-->
+          </div>
+       
+          {% endif %}
+         </div>
+
+       
+       <div class="row d-flex justify-content-center" style="max-width:800px; margin-right:auto; margin-left:auto;">
+       
+        <div class="container detail">
+
+
+        <div style="text-align:center; padding-top:20px; padding-bottom:15px;">
+          <h2><i class="fa-solid fa-circle-user" style="margin-left:auto; margin-right:auto; padding-left:12px;">&nbsp;&nbsp;</i><br>{{post.user.username}}</h2>
+        </div>
+          <div class="biocard-img" style='transform:scale(1.6);'>
+            <img src="{% static post.image %}">
+            
+          </div>
+        
+         
+
+            
+
+
+          <section class="detail-header" style="padding-top:30px;">
+            <h5 style="color:#FFFF00; text-align:center;"><i class="fa-solid fa-bookmark">&nbsp;&nbsp;</i>Job Title: </h5>
+            <hr class="solid" style="max-width: 30%; margin-right: auto;
+            margin-left: auto;">
+              <h1 class="secondary-text" style="font-size:2.6rem!important; text-align:center;">{{post.job_title}}</h1>
+              <h2 class="detail-heading"> 
+                <hr class="solid" style="max-width: 40%; margin-right: auto;
+                margin-left: auto;">
+         
+              
+  
+          </section>
+           <div id="date">
+           <a style="color:#8FD19E; font-size:1.3rem;"></i>  <a style="color:#FFFF00; font-size:1.4rem;"><i class="fa-solid fa-sitemap" ></i>&nbsp;&nbsp;Category:  {{post.job_categories}}</a><br>
+           <i class="fa-solid fa-calendar-days">&nbsp;&nbsp;</i>Created: {{post.date_created}}</a>
+           <hr class="solid" style="max-width: 60%; margin-right: auto;
+           margin-left: auto; margin-top:15px;">
+         
+           </div style="margin-bottom:10px;">
+         
+        
+          <section class="detail-wrap">
+            <div class="detail-icon">
+            </div>
+            <div class="detail-detail" style="padding-bottom:20px;">
+              <h3 style="color:#FFFF00"><i class="fa-solid fa-comment-dots" >&nbsp;&nbsp;</i>Brief&nbsp;&nbsp;Description: </h3>
+              <h4>{{post.job_summary}} </h4>
+              <h2 class="detail-heading"> <hr class="solid">
+            </div>
+          </section>
+          <section class="detail-wrap">
+
+            <section class="detail-wrap">
+              <div class="detail-icon">
+              </div>
+              <div class="detail-detail" style="padding-bottom:20px;">
+                <h3 style="color:#FFFF00"><i class="fa-solid fa-location-arrow">&nbsp;&nbsp;</i>Location: </h3>
+                <h4>{{post.location}} </h4>
+                <h2 class="detail-heading"> <hr class="solid">
+              </div>
+            </section>
+            <section class="detail-wrap">
+
+
+            <div class="detail-icon">
+
+            </div>
+            <div class="detail-detail" style="padding-bottom:20px;">
+              <h3 style="color:#FFFF00"><i class="fa-solid fa-circle-info">&nbsp;&nbsp;</i>Job Description: </h3>
+              <h4>{{post.job_description}}</h4>
+              <h2 class="detail-heading"> <hr class="solid">
+            </div>
+          </section>
+          <section class="detail-wrap">
+            <div class="detail-icon">
+            </div>
+            <div class="detail-detail" style="padding-bottom:20px;">
+              <h3 style="color:#FFFF00"><i class="fa-solid fa-clock">&nbsp;&nbsp;</i>Availability: </h3>
+              <h3 class="detail-heading"> {{post.hours}}</h3>
+              <hr class="solid">
+         
+            </div>
+          </section>
+          <section class="detail-wrap">
+            <div class="detail-icon">
+            </div>
+            <div class="detail-detail" style="padding-bottom:20px;">
+              <h3 style="color:#FFFF00"><i class="fa-solid fa-car-side">&nbsp;&nbsp;</i>Remote:</h3>
+              <h2 class="detail-heading">
+             <h3> {{post.remote_type}}</h3>
+             <hr class="solid">
+            </div>
+          </section>
+          <section class="detail-wrap">
+            <div class="detail-icon">
+            </div>
+            <div class="detail-detail" style="padding-bottom:20px;">
+              <h3 style="color:#FFFF00"><i class="fa-solid fa-list-check">&nbsp;&nbsp;</i>Skills</h3>
+              <h4>{{post.skills}}</h4>
+              <h2 class="detail-heading"> <hr class="solid">
+            </div>
+            
+          </section>
+        <!--
+        </div>
+        <div class="biocard overlay_detail d-flex flex-column" data-aos="flip-up" >
+  
+           
+          <div class="biocard-img" >
+            <img src="{% static 'images/user_images/uidevjewsyf71.jpg' %}">
+            
+          </div>
+          <a href="" class="alpha" style="margin-top:-23px; font-size:1.3rem;">{{post.user.username}}&nbsp;</a>
+          <div class="desc" style="margin-top:23px;">
+          
+           <hr class="solid">
+           <h3 class="secondary-text" style="font-size:1.3rem; margin-right:22px;;">{{post.job_title}}</h3>
+           <hr class="solid">
+           <div id="date">
+           <a style="color:#8FD19E; font-size:0.9rem;">Created: {{post.date_created}}</a>
+           <hr class="solid">
+           </div style="margin-bottom:10px;">
+         
+           <p class="card-text" style="color:white; padding-left:6px; padding-right:22px;">{{post.job_summary}}</p>
+          </div>
+          <a href="{% url 'post_app:detail' post.id %}"><button class="custom-button">
+           <i class="fa-solid fa-arrow-right-to-bracket"></i> <i>&nbsp;Contact</i></button></a>
+           <div class="d-flex flex-row justify-content-center">
+           <h5 class="secondary-text" style="font-size:1.1rem; padding-top:270px; color:#8fd19e;">{{post.location}}</h5>
+           </div>
+          <div class="details">
+             
+            <div class="rating">
+              <h4 class="primary-text" style="margin: 0px 0;"> <i class="fa-solid fa-thumbs-down" style="font-size:1.3rem;"></i><i> &nbsp;Dislike</i></h>
+              <br>
+              <!--<h6 class="secondary-text">
+                 </h6>
+            </div>
+            <div class="activity">
+              <h4 class="primary-text"  style="margin: 0px 0;"><i <i class="fa-solid fa-thumbs-up" style="font-size:1.3rem;"></i><i> &nbsp;Like</i></h4>
+              <!--<h6 class="secondary-text"> </h6>
+           </div>
+            
+          </div>
+          
+            </div>
+          </div>
+        </div>
+
+      -->
+        {% if request.user.is_authenticated %}
+        
+          <div class="biocard-2 overlay_detail d-flex flex-column" style="height:150px">
+        
+                 
+            <div class="" >
+             
+           
+           
+            <a href="{% url 'post_app:inbox'  %}"><button  class="primary-text " type="hidden" name="post_id" value="{{ post_id }}" 
+             <i class="fa-solid fa-arrow-right-to-bracket" style="font-size:1.6rem;"></i> <i>&nbsp;Message this Job Post</i>&nbsp;&nbsp;<i class="fa-solid fa-message"></i></button></a>
+            </div>
+      </div>
+        
+<!--                
+        <div class="" >
+         
+       
+       
+        <a href="{% url 'post_app:delete' post.id  %}"><button class="primary-text " type="hidden" name="post_id" value="{{ post_id }}" <i>&nbsp;Delete</i>&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></button></a>
+        </div>
+  </div>
+  <div class="biocard overlay_detail d-flex flex-column"  >
+        
+                 
+    <div class="" >
+     
+   
+   
+    <a href="{% url 'job_app:detail' post.user.username %}"><button class="primary-text " type="hidden" name="post_id" value="{{ post_id }}" 
+     <i class="fa-solid fa-arrow-right-to-bracket"></i><i>&nbsp;User Profile Page</i>&nbsp;&nbsp;<i class="fa-solid fa-id-badge"></i></button></a>
+    </div>
+</div>
+
+<div class="biocard overlay_detail d-flex flex-column"  >
+        
+                 
+  <div class="" >
+   
+ 
+ 
+  <a href="{% url 'post_app:inbox'  %}"><button class="primary-text " type="hidden" name="post_id" value="{{ post_id }}" 
+   <i class="fa-solid fa-arrow-right-to-bracket"></i> <i>&nbsp;Follow This Job</i>&nbsp;&nbsp;<i class="fa-solid fa-person-walking"></i></button></a>
+  </div>
+</div>
+
+
+-->
+
+
+      {% else  %}
+
+      <div class="biocard overlay_detail d-flex flex-column"  >
+        
+                 
+        <div class="" >
+         
+       
+       
+        <a href="{% url 'job_app:login'  %}"><button class="primary-text " type="hidden" name="post_id" id='Post_id' value="{{ post_id }}" 
+         <i class="fa-solid fa-arrow-right-to-bracket"></i> <i>&nbsp;Log-in to Follow/Contact</i></button></a>
+        </div>
+  </div>
+
+
+  
+
+      {% endif %}
+
+    </div>
+      
+       </div>
+        
+  
+
+
+
+</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+{% endblock content %}

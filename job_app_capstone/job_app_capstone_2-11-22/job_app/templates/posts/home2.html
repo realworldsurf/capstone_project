@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+
+
+<ul class="circlesextra">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<div class="  d-flex container-fluid section2bg pb-5 pt-5">
+  <div class="  rowmargins pt-5 pb-5">
+    
+    <div class=" row mb-5 mt-5">
+     <div class="d-flex justify-content-center">
+    
+        {% for post in posts %}
+        {% include 'posts/card.html' with post=post %}
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="area2">
+  <ul class="circles2">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</div>
+ 
+
+{% endblock content %}

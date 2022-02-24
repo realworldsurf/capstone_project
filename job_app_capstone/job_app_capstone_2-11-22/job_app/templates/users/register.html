@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'nav_bar/navbar_3.html' %}
+<container class="register_container register_container shadow p-3 mb-5 bg-body rounded" style=" display:flex;
+max-width:600px;
+justify-content: center; flex-direction:column; margin-top:50px;">
+    <h1 class="h1" style="display:flex; justify-content:center; margin-top:40px; margin-bottom: 25px; margin-left:35px; color:black; font-family:lato;">Register to Add Jobs</h1>
+<!-- Add the {% csrf_token %} to every Django template you create that uses POST to submit data. -->
+<!--form action is tied to the view name and method for get/post method-->
+    <form action="{% url 'job_app:register' %}" method="POST" class='d-flex flex-column align-items-center gap-2'>
+        <fieldset>
+            <label for="id_username">
+                {{form.username.label}}
+            </label>
+            <br>
+            {{form.username}} 
+        </fieldset>
+        <fieldset>
+            <label for="id_password" style="padding-left:5px;">
+                {{form.password.label}}
+            </label>
+            <br>
+            {{form.password}} 
+        </fieldset>
+        <fieldset>
+            <label for="first_name" style="padding-left:5px;">
+                {{form.first_name.label}}
+            </label>
+            <br>
+            {{form.first_name}} 
+        </fieldset>
+        <fieldset>
+            <label for="id_last_name" style="padding-left:5px;">
+                {{form.last_name.label}}
+            </label>
+            <br>
+            {{form.last_name}} 
+        </fieldset>
+            <fieldset>
+                <br>
+                <label for="id_email" style="padding-left:5px;">
+                    {{form.email.label}}
+                    
+                </label>
+                <br>
+                {{form.email}} 
+            </fieldset>
+        </fieldset>
+        
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success" style="max-width:265px; margin-bottom:50px; margin-top:15px;">Register Now</button>
+        <!-- {{form}} will render the entire default form fields -->
+       
+    </form>
+    
+</container>
+
+{% endblock content %}

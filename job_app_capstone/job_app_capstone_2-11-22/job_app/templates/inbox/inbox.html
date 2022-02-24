@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div
+style="color:black;" >
+
+    <h2>Compose Message</h2>
+
+   <!--  
+    <div id="message">
+        <form action="{% url 'post_app:inbox'  %}" method="post">
+            {% csrf_token %}
+            {{form}}
+            {% if not init %}
+                    {% for user in users.all %}
+                        <option value={{user.id}}>{{user.username}}</option><br />
+                    {% endfor %}
+                </select>
+            {% else %}
+                {{user.username}}
+                <input type="hidden" name="receiver" value="{{init.id}}">
+            {% endif %}
+            User ID: {{user.id}}
+            <input type="hidden" name="message"/>
+            <button type="submit">send message</button><br />
+      
+        </form>
+  -->
+
+
+
+ <div id="message">
+        <form action="{% url 'post_app:inbox'  %}" method="post">
+            {% csrf_token %}
+            {{form}}
+            {% if not init %}
+                    {% for user in users.all %}
+                        <option value={{user.id}}>{{user.username}}</option><br />
+                    {% endfor %}
+                </select>
+            {% else %}
+                {{user.username}}
+                <input type="hidden" name="receiver" value="{{init.id}}">
+            {% endif %}
+            User ID: {{user.id}}
+            <input type="hidden" name="message"/>
+            <button type="submit">send message</button><br />
+      
+        </form>
+
+
+
+
+
+  
+        {% for message in messages %}
+        {% include 'inbox.html' with post=post %}
+        {% endfor %}
+    </div>
+
+
+
+
+    {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+

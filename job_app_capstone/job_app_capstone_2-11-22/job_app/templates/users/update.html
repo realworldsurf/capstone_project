@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'nav_bar/navbar_3.html' %}
+
+<div class="row" style="padding-top:100px; " >
+<h1 style="color:black; text-align:center; padding-bottom:40px;" ><i class="fa-solid fa-user"></i>{{user.username}}</h1>
+</div>
+
+<div>
+    <form method="POST" action="{% url 'job_app:update' user.username %}" enctype='multipart/form-data'>
+        {% csrf_token %} 
+        {{form}}
+    <button type="submit">Update</button>
+
+    </form>
+</div>
+
+
+{% endblock content %}
+
+

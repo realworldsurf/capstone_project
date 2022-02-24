@@ -1,0 +1,95 @@
+
+{% load static %}
+
+
+
+{% if request.user.is_authenticated %}
+
+
+
+
+
+<!-- boolean value in django using jinja to authenticate a user -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+  <div class="container-fluid">
+   
+    <a class="navbar-brand" href="{% url 'post_app:home' %}"><i class="fa-solid fa-house-user" style="1.8rem;"></i></i>&nbsp;Job Search App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <i class="fas fa-circle-notch" style="color:#4de053; min-width:40px; background-color:#183B33; padding-left:15px; padding-top:6px; padding-bottom:34px; margin-top:0.5px; max-height:32.79px;"></i><i><i style="font-size:1.3rem; color:#4de053; background-color:#183B33; margin: 2px 0 0 0; padding-top:7px; padding-bottom: 9px;" >logged in&nbsp;&nbsp;&nbsp;</i></i>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'job_app:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i><i>&nbsp;</i>Log Out</a>
+        </li>
+        <div class="v2"></div>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'post_app:home' %}"> <i class="fas fa-briefcase">&nbsp;</i>Hiring</a>
+        </li>
+        <div class="v2"></div>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'post_app:home' %}"><i class="fas fa-binoculars">&nbsp;</i>Seeking</a>
+        </li>
+        <li class="nav-item">
+         
+        </li>
+        <li class="nav-item">
+          
+        </li>
+       
+      </ul>
+      <form>
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+{% else %}
+
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'post_app:home' %}"><i class="fas fa-home"></i></i>&nbsp;Job Search App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <i class="fas fa-circle-notch" style="color:red; min-width:40px; background-color:#183B33; padding-left:15px; padding-top:10px; margin-top:9px; max-height:32.79px;"></i><i><p style="font-size:1.2rem; color:red; background-color:#183B33; margin: 2px 0 0 0; padding-top:4px; margin-top:9px;">&nbsp;logged Out&nbsp;&nbsp;&nbsp;</p></i>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'job_app:login' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i>&nbsp;<i>Log In</i></a>
+        </li>
+        <div class="v3"></div>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'job_app:register' %}"> <i class="fa-solid fa-pen-to-square"></i>&nbsp;</i>register</a>
+        </li>
+        <div class="v2"></div>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'post_app:home' %}"> <i class="fas fa-briefcase">&nbsp;</i>Hiring</a>
+          </li>
+        <div class="v2"></div>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'post_app:home' %}"><i class="fas fa-binoculars">&nbsp;</i>Seeking</a>
+        </li>
+        <li class="nav-item">
+         
+        </li>
+        <li class="nav-item">
+          
+        </li>
+       
+      </ul>
+      <form>
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+{% endif %}

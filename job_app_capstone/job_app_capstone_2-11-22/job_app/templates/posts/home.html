@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+{% include 'nav_bar/navbar.html' %}
+
+
+
+
+
+
+
+<div class="video-container">
+  <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="static\images\user_images\Hackers_at_work.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white"> 
+          <img src="static\images\user_images\job_logo_1.png" alt="..." class="header-img" height="125"style="padding-bottom:10px;"/>
+          <h1 class="display-3">Job Search App</h1>
+          <p class="lead mb-0">A Job search app is what this is intended to be.</p>
+        </div> <!-- /.w-100 -->
+      </div> <!-- /.d-flex -->
+    </div> <!-- /.container -->    
+</div> <!-- /.video-container -->
+
+
+<ul class="circlesextra">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>   
+</ul>
+
+
+<div class="  d-flex container-fluid section2bg pb-5 pt-5" style="margin-top:-85px;" >
+  <div class="  rowmargins pt-5 pb-5">
+    <div class=" row mb-5 mt-5">
+     <div class="row d-flex justify-content-center">
+      
+      {% if request.user.is_authenticated %}
+
+      <a class="create_job" type="button" href="{% url 'post_app:create' %}"><button class="create_job_button">Create a new Job Post</button></a>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+     
+
+      <a class="create_job" type="button" href="{% url 'job_app:detail' user.username %}"><button class="create_job_button">Go to your job Portal</button></a>
+      {% else %}
+      <a class="create_job" type="button" href="{% url 'job_app:register'  %}"><button class="create_job_button">Register or Login To Create a Job Post</button></a>
+      
+      {% endif %}
+    
+        {% for post in posts %}
+        {% include 'posts/card.html' with post=post %}
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}
